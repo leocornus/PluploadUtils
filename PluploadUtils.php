@@ -32,5 +32,8 @@ $wgSpecialPageGroups[ 'PluploadUtils' ] = 'other';
 $wgExtensionMessagesFiles[ 'PluploadUtils' ] = 
     __DIR__ . '/PluploadUtils.i18n.php'; 
 # Location of an aliases file (Tell MediaWiki to load this file)
-$wgExtensionMessagesFiles[ 'PluploadUtilsAlias' ] = 
-    __DIR__ . '/PluploadUtils.alias.php'; 
+# interationalize the name of the special page.
+# don't need for now, reference Special pages manual for 
+# details: http://www.mediawiki.org/wiki/Manual:Special_pages
+#$wgExtensionMessagesFiles[ 'PluploadUtilsAlias' ] = 
+#    __DIR__ . '/PluploadUtils.alias.php'; 
