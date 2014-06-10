@@ -26,6 +26,7 @@ jQuery(document).ready(function() {
       //url : "/plupload.php",
       url : "/wiki/Special:SpecialPlupload",
       multipart_params : {
+          action : "plupload",
           desc : "testing upload from ticket",
           comment : "from code, plupload"
       },
