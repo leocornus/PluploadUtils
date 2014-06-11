@@ -16,36 +16,62 @@ class SpecialPlupload extends SpecialPage {
         $request = $this->getRequest();
         $action = $request->getText('action');
         if($action != 'plupload') {
+            // this is not a PLupload request, print out
+            // help info and return.
             $this->printHelp();
             return;
         }
 
+        // this is a PLupload request, disable the MediaWiki output.
         global $wgOut;
         $wgOut->disable();
+
+        // get ready wiki text.
+        $pageText = $this->getPageText($request);
+        $comment = $this->getPageComment($request);
+        // watch the page by default.
+        $watch = true;
+        // get the desired destination file name.
+        $fileName = $request->getText("wpDestFile");
 
         $mUpload = UploadBase::createFromRequest($request);
         $mLocalFile = $mUpload->getLocalFile();
         $status = $mUpload->performUpload(
-          "testing upload",
-          "[[Category:OPSpedia Development]] [[Category:Screenshot]]",
-          true, $this->getUser()
-        );
+          $comment, $pageText, $watch, $this->getUser());
         //$file = wfFindFile($mLocalFile->getName());
 
         $result = array(
           "jsonrpc" => "2.0",
-          "desc" => $request->getText('desc'),
-          "comment" => $request->getText('comment'),
-          "request" => $request,
-          "result" => $status,
-          "name" => $mLocalFile->getName(),
-          "source" => $mUpload->getSourceType(),
-          "Title" => $mLocalFile->getTitle()
+          "name" => $fileName,
         );
 
         die(json_encode($result));
     }
 
+    /**
+     * preparing the page text for this uploaded file.
+     */
+    function getPageText($request) {
+
+        $pageText = $request->getText("desc");
+
+        return $pageText;
+    }
+
+    /**
+     * preparing the comment for this page change
+     */
+    function getPageComment($request) {
+
+        $pageText = $request->getText("comment");
+
+        return $pageText;
+    }
+
+    /**
+     * print out the brief help information for how to use this
+     * special page.
+     */
     function printHelp() {
 
         $this->setHeaders();
@@ -65,6 +91,15 @@ client to save files as MediaWiki Files.
         commment : "here is some comments"
     }
 </source>
+
+Here are the definition for each param:
+
+; action
+: Only the action '''plupload''' will trigger the process to save file as the MediaWiki file.
+; desc
+: this param will save as the summary text for the MediaWiki file.
+; comment
+: this will be the comment for MediaWiki file update. 
 EOT;
         $output->addWikiText( $wikitext );
     }

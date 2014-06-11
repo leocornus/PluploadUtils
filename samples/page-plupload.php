@@ -68,6 +68,8 @@ jQuery(document).ready(function() {
                 up.id + '-' + file.id + '.' + ext;
               up.settings.multipart_params.Filename = 
                 up.id + '-' + file.id + '.' + ext;
+              up.settings.multipart_params.wpDestFile = 
+                file.id + '.' + ext;
           },
  
           FilesAdded: function(up, files) {
@@ -103,7 +105,7 @@ jQuery(document).ready(function() {
 
   <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
   <br />
-   
+  
   <div id="container" style="">
       <a id="pickfiles" href="javascript:;">[Select files]</a>
       <a id="uploadfiles" href="javascript:;">[Upload files]</a>
