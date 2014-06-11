@@ -27,7 +27,6 @@ $wgSpecialPages[ 'SpecialPlupload' ] = 'SpecialPlupload';
 # set the group to other for the special page.
 $wgSpecialPageGroups[ 'PluploadUtils' ] = 'other';
 
-
 # Location of a messages file (Tell MediaWiki to load this file)
 $wgExtensionMessagesFiles[ 'PluploadUtils' ] = 
     __DIR__ . '/PluploadUtils.i18n.php'; 

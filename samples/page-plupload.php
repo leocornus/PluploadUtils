@@ -22,7 +22,6 @@ jQuery(document).ready(function() {
       unique_names : true,
       browse_button : 'pickfiles', // you can pass in id...
       container: 'container', // ... or DOM Element itself
-
       //url : "/plupload.php",
       url : "/wiki/Special:SpecialPlupload",
       multipart_params : {

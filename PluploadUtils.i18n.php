@@ -7,7 +7,8 @@
  */
 $messages = array();
  
-/** English
+/** 
+ * English
  * @author Sean Chen
  */
 $messages[ 'en' ] = array(
@@ -18,7 +19,8 @@ $messages[ 'en' ] = array(
     'pluploadutils-desc' => "utilities for using plupload in MediaWiki",
 );
  
-/** Message documentation
+/** 
+ * Message documentation
  * @author <your username>
  */
 $messages[ 'qqq' ] = array(

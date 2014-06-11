@@ -3,7 +3,6 @@
 class SpecialPlupload extends SpecialPage {
 
     function __construct() {
-
         parent::__construct('SpecialPlupload');
     }
 
@@ -37,7 +36,6 @@ class SpecialPlupload extends SpecialPage {
           "jsonrpc" => "2.0",
           "desc" => $request->getText('desc'),
           "comment" => $request->getText('comment'),
-          //"full-url" => $file->getFullUrl(),
           "request" => $request,
           "result" => $status,
           "name" => $mLocalFile->getName(),
