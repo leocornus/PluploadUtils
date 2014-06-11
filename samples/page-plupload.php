@@ -19,7 +19,6 @@ jQuery(document).ready(function() {
   var uploader = new plupload.Uploader({
 
       runtimes : 'html5,flash,silverlight,html4',
-      unique_names : true,
       browse_button : 'pickfiles', // you can pass in id...
       container: 'container', // ... or DOM Element itself
       //url : "/plupload.php",
@@ -59,17 +58,10 @@ jQuery(document).ready(function() {
           BeforeUpload: function(up, file) {
               console.log('up object %O', up);
               console.log('file object: %O', file);
-              // try to add prefix to the file name.
-              var file_name = file.name;
-              // get the extension.
-              var ext = file.name.split('.').pop();
-              file.name = file.id + '.' + ext;
-              up.settings.multipart_params.key = 
-                up.id + '-' + file.id + '.' + ext;
-              up.settings.multipart_params.Filename = 
-                up.id + '-' + file.id + '.' + ext;
+              // attach the uploader id as prefix to
+              // make the file name unique.
               up.settings.multipart_params.wpDestFile = 
-                file.id + '.' + ext;
+                up.id + '-' + file.name;
           },
  
           FilesAdded: function(up, files) {
