@@ -43,6 +43,8 @@ class SpecialPlupload extends SpecialPage {
         $result = array(
           "jsonrpc" => "2.0",
           "name" => $fileName,
+          "fileUrl" => $mLocalFile->getCanonicalUrl(),
+          "pageUrl" => $mLocalFile->getTitle()->getFullUrl(),
         );
 
         die(json_encode($result));
