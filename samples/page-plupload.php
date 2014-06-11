@@ -56,6 +56,20 @@ jQuery(document).ready(function() {
               };
           },
 
+          BeforeUpload: function(up, file) {
+              console.log('up object %O', up);
+              console.log('file object: %O', file);
+              // try to add prefix to the file name.
+              var file_name = file.name;
+              // get the extension.
+              var ext = file.name.split('.').pop();
+              file.name = file.id + '.' + ext;
+              up.settings.multipart_params.key = 
+                up.id + '-' + file.id + '.' + ext;
+              up.settings.multipart_params.Filename = 
+                up.id + '-' + file.id + '.' + ext;
+          },
+ 
           FilesAdded: function(up, files) {
               plupload.each(files, function(file) {
                   document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
