@@ -80,7 +80,11 @@ jQuery(document).ready(function() {
           
           // callback if file uploaded successfully.
           FileUploaded: function(up, file, info) {
-              console.log("info: %O", info);
+              console.log("info: %O", info.response);
+              var res = JSON.parse(info.response);
+              var desc = jQuery('textarea#description');
+              desc.val(desc.val() + "\n\n [[Image(" + 
+                       res.fileUrl + ", 500px)]]\n\n");
           }
       }
   });
@@ -97,7 +101,10 @@ jQuery(document).ready(function() {
 
   <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
   <br />
-  
+
+  Description: <textarea id="description"> abcd
+  </textarea>
+ 
   <div id="container" style="">
       <a id="pickfiles" href="javascript:;">[Select files]</a>
       <a id="uploadfiles" href="javascript:;">[Upload files]</a>
