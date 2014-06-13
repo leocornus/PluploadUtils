@@ -61,7 +61,7 @@ jQuery(document).ready(function() {
  
           FilesAdded: function(up, files) {
               plupload.each(files, function(file) {
-                  document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+                  jQuery('#filelist').html(file.name);
               });
           },
    
@@ -81,6 +81,7 @@ jQuery(document).ready(function() {
               desc.val(desc.val() + "\n\n [[Image(" + 
                        res.fileUrl + ", 500px)]]\n\n");
               // switch cursor...
+              jQuery('#filelist').html('No file choose');
               jQuery(':text').css('cursor', 'text');
               jQuery(':button').css('cursor', 'default');
               jQuery('textarea').css('cursor', 'text');
@@ -90,7 +91,8 @@ jQuery(document).ready(function() {
   });
 
   uploader.init();
-  jQuery('#filelist').html('');
+
+  jQuery('#filelist').html('No file choose');
   jQuery('#uploadfiles').click(function() {
       // switch cursor...
       jQuery(':text').css('cursor', 'wait');
