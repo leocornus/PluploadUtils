@@ -85,6 +85,10 @@ jQuery(document).ready(function() {
               var desc = jQuery('textarea#description');
               desc.val(desc.val() + "\n\n [[Image(" + 
                        res.fileUrl + ", 500px)]]\n\n");
+              // switch cursor...
+              jQuery(':text').css('cursor', 'text');
+              jQuery(':button').css('cursor', 'default');
+              jQuery('textarea').css('cursor', 'text');
               jQuery('body').css('cursor', 'default');
           }
       }
@@ -93,7 +97,11 @@ jQuery(document).ready(function() {
   uploader.init();
   jQuery('#filelist').html('');
   jQuery('#uploadfiles').click(function() {
-      jQuery('body').css('cursor', 'progress');
+      // switch cursor...
+      jQuery(':text').css('cursor', 'wait');
+      jQuery(':button').css('cursor', 'wait');
+      jQuery('textarea').css('cursor', 'wait');
+      jQuery('body').css('cursor', 'wait');
       uploader.start();
       return false;
   });
@@ -101,15 +109,13 @@ jQuery(document).ready(function() {
 </script>
 <div id="content">
 
-  <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
-  <br />
-
   Description: <textarea id="description"> abcd
   </textarea>
  
   <div id="container" style="">
-      <a id="pickfiles" href="javascript:;">[Select files]</a>
-      <a id="uploadfiles" href="javascript:;">[Upload files]</a>
+      <input type="button" id="pickfiles" value="[Select files]"/>
+      <span id="filelist"></span>
+      <input type="button" id="uploadfiles" value="[Upload files]"/>
   </div>
    
   <br />
