@@ -48,12 +48,6 @@ jQuery(document).ready(function() {
 
       init: { 
           PostInit: function() {
-              jQuery('filelist').innerHTML = '';
-   
-              jQuery('uploadfiles').onclick = function() {
-                  uploader.start();
-                  return false;
-              };
           },
 
           BeforeUpload: function(up, file) {
