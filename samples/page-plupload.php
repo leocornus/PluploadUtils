@@ -85,6 +85,7 @@ jQuery(document).ready(function() {
               var desc = jQuery('textarea#description');
               desc.val(desc.val() + "\n\n [[Image(" + 
                        res.fileUrl + ", 500px)]]\n\n");
+              jQuery('body').css('cursor', 'default');
           }
       }
   });
@@ -92,6 +93,7 @@ jQuery(document).ready(function() {
   uploader.init();
   jQuery('#filelist').html('');
   jQuery('#uploadfiles').click(function() {
+      jQuery('body').css('cursor', 'progress');
       uploader.start();
       return false;
   });
