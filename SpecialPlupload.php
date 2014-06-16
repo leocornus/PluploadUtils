@@ -86,10 +86,12 @@ class SpecialPlupload extends SpecialPage {
 This is a special page to provide a simple way for PLupload 
 client to save files as MediaWiki Files.
 
+The following is a sample for '''multipart_params''' option from PLupload library. The '''action''' has to be '''plupload''' to trigger the process to save file as MediaWiki File.
+
 <source lang="javascript">
     multipart_params = {
         action : "plupload",
-        desc : "testing upload from plupload",
+        desc : "testing upload from plupload [[Testing]]",
         commment : "here is some comments"
     }
 </source>
