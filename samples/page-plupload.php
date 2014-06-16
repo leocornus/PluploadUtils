@@ -56,7 +56,7 @@ jQuery(document).ready(function() {
               // attach the uploader id as prefix to
               // make the file name unique.
               up.settings.multipart_params.wpDestFile = 
-                up.id + '-' + file.name;
+                file.id + '-' + file.name;
           },
  
           FilesAdded: function(up, files) {
