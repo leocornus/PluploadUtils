@@ -42,5 +42,5 @@ License
 
 GNU General Public License Version 2
 
-.. _plupload https://github.com/moxiecode/plupload
-.. _MediaWiki http://www.mediawiki.org/
+.. _plupload: https://github.com/moxiecode/plupload
+.. _MediaWiki: http://www.mediawiki.org/
