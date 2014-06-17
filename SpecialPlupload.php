@@ -13,6 +13,7 @@ class SpecialPlupload extends SpecialPage {
      */
     function execute( $par ) {
 
+
         $request = $this->getRequest();
         $action = $request->getText('action');
         if($action != 'plupload') {
@@ -35,17 +36,34 @@ class SpecialPlupload extends SpecialPage {
         $fileName = $request->getText("wpDestFile");
 
         $mUpload = UploadBase::createFromRequest($request);
-        $mLocalFile = $mUpload->getLocalFile();
-        $status = $mUpload->performUpload(
-          $comment, $pageText, $watch, $this->getUser());
-        //$file = wfFindFile($mLocalFile->getName());
 
-        $result = array(
-          "jsonrpc" => "2.0",
-          "name" => $fileName,
-          "fileUrl" => $mLocalFile->getCanonicalUrl(),
-          "pageUrl" => $mLocalFile->getTitle()->getFullUrl(),
-        );
+        // user verification! using the UploadBase 
+        $permit = $mUpload->verifyTitlePermissions($this->getUser());
+        if($permit) {
+            // user is allow to upload...
+
+            $mLocalFile = $mUpload->getLocalFile();
+            $status = $mUpload->performUpload(
+              $comment, $pageText, $watch, $this->getUser());
+
+            // TODO: need pass back the status / errors, so client
+            // could handle differently based on the status...
+
+            $result = array(
+              "jsonrpc" => "2.0",
+              "success" = true,
+              "name" => $fileName,
+              "fileUrl" => $mLocalFile->getCanonicalUrl(),
+              "pageUrl" => $mLocalFile->getTitle()->getFullUrl(),
+            );
+        } else {
+            // user is not allowed to upload! return error message.
+            $result = array(
+              "jsonrpc" => "2.0",
+              "success" => false,
+              "Error" => "You can not upload file to MediaWiki"
+            );
+        }
 
         die(json_encode($result));
     }
