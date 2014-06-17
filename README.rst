@@ -10,7 +10,7 @@ plupload_ in MediaWiki sites.
 PluploadUtils could be installed as a regular MediaWiki_ extension.
 
 - copy the PluploadUtils folder to **extensions** folder.
-- add the following line to your **LocalSettions.php** file ::
+- add the following line to your **LocalSettions.php** file::
 
     require_once( "$IP/extensions/PluploadUtils/PluploadUtils.php" );
 
@@ -33,7 +33,7 @@ Here is an example::
     comment : "This is the comment"
   }
 
-Check more details by visit the spcial page itself ::
+Check more details by visit the spcial page itself::
 
   http://you.mediawik.site.com/wiki/Special:SpecialPlupload
 
