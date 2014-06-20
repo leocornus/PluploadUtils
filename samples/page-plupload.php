@@ -20,7 +20,6 @@ jQuery(document).ready(function() {
 
       runtimes : 'html5,flash,silverlight,html4',
       browse_button : 'pickfiles', // you can pass in id...
-      container: 'container', // ... or DOM Element itself
       multi_selection: false,
       //url : "/plupload.php",
       url : "/wiki/Special:SpecialPlupload",
@@ -60,13 +59,16 @@ jQuery(document).ready(function() {
           },
  
           FilesAdded: function(up, files) {
-              plupload.each(files, function(file) {
-                  jQuery('#filelist').html(file.name);
-              });
+              // switch cursor...
+              jQuery(':text').css('cursor', 'wait');
+              jQuery(':button').css('cursor', 'wait');
+              jQuery('textarea').css('cursor', 'wait');
+              jQuery('body').css('cursor', 'wait');
+              this.start();
+              return false;
           },
    
           UploadProgress: function(up, file) {
-              document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
           },
    
           Error: function(up, err) {
@@ -81,7 +83,6 @@ jQuery(document).ready(function() {
               desc.val(desc.val() + "\n\n [[Image(" + 
                        res.fileUrl + ", 500px)]]\n\n");
               // switch cursor...
-              jQuery('#filelist').html('No file choose');
               jQuery(':text').css('cursor', 'text');
               jQuery(':button').css('cursor', 'default');
               jQuery('textarea').css('cursor', 'text');
@@ -91,30 +92,13 @@ jQuery(document).ready(function() {
   });
 
   uploader.init();
-
-  jQuery('#filelist').html('No file choose');
-  jQuery('#uploadfiles').click(function() {
-      // switch cursor...
-      jQuery(':text').css('cursor', 'wait');
-      jQuery(':button').css('cursor', 'wait');
-      jQuery('textarea').css('cursor', 'wait');
-      jQuery('body').css('cursor', 'wait');
-      uploader.start();
-      return false;
-  });
 });
 </script>
 <div id="content">
 
   Description: <textarea id="description"> abcd
   </textarea>
- 
-  <div id="container" style="">
-      <input type="button" id="pickfiles" value="[Select files]"/>
-      <span id="filelist"></span>
-      <input type="button" id="uploadfiles" value="[Upload files]"/>
-  </div>
-   
+  <input type="button" id="uploadfiles" value="[Upload files]"/>
   <br />
   <pre id="console"></pre>
 </div>
