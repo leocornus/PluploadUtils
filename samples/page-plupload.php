@@ -98,7 +98,7 @@ jQuery(document).ready(function() {
 
   Description: <textarea id="description"> abcd
   </textarea>
-  <input type="button" id="uploadfiles" value="[Upload files]"/>
+  <input type="button" id="pickfiles" value="[Select files]"/>
   <br />
   <pre id="console"></pre>
 </div>
