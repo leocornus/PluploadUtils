@@ -55,6 +55,7 @@ class SpecialPlupload extends SpecialPage {
               "name" => $fileName,
               "fileUrl" => $mLocalFile->getCanonicalUrl(),
               "pageUrl" => $mLocalFile->getTitle()->getFullUrl(),
+              "mimeType" => $mLocalFile->getMimeType(),
             );
         } else {
             // user is not allowed to upload! return error message.
