@@ -8,7 +8,8 @@ require_once( "\$IP/extensions/PluploadUtils/PluploadUtils.php" );
 EOT;
     exit( 1 );
 }
- 
+
+// MediaWiki extension's version is tracked in the entrence PHP file.
 $wgExtensionCredits[ 'specialpage' ][] = array(
     'path' => __FILE__,
     'name' => 'PluploadUtils',
