@@ -35,6 +35,11 @@ Example to use this option::
   # in your extension.
   wfDebugLog('My Extension', 'debugging message');
 
+**?debug=true**
+
+This HTTP request param tell MediaWiki_ to show all js lib and 
+stylesheets in separate files.
+It will provide a very convenient way to debug a MediaWiki_ skin.
 
 .. _MediaWiki: http://www.mediawiki.org/
 .. _MediaWiki Manual Configuration Settings: http://www.mediawiki.org/wiki/Manual:Configuration_settings
