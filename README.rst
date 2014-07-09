@@ -37,6 +37,11 @@ Check more details by visit the spcial page itself::
 
   http://you.mediawik.site.com/wiki/Special:SpecialPlupload
 
+Change Logs
+===========
+
+- `PluploadUtils Release 0.1.0 <blog/master/docs/001-Release-0.1.0.rst>`_.
+
 License
 =======
 
