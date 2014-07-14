@@ -52,7 +52,7 @@ class SpecialPlupload extends SpecialPage {
             $result = array(
               "jsonrpc" => "2.0",
               "success" => true,
-              "name" => $fileName,
+              "fileName" => $fileName,
               "fileUrl" => $mLocalFile->getCanonicalUrl(),
               "pageUrl" => $mLocalFile->getTitle()->getFullUrl(),
               "mimeType" => $mLocalFile->getMimeType(),
@@ -66,7 +66,8 @@ class SpecialPlupload extends SpecialPage {
             );
         }
 
-        die(json_encode($result));
+        echo(json_encode($result));
+        die();
     }
 
     /**
@@ -124,6 +125,19 @@ Here are the definition for each param:
 : this param will save as the summary text for the MediaWiki file.
 ; comment
 : this will be the comment for MediaWiki file update. 
+
+The response will include the details information about 
+each uploaded file and it will be in JSON format.
+There is a sample of the response.
+
+<source lang="javascript">
+    response = {
+        fileName : 'name of the uploaded file',
+        fileUrl : 'the URL to the actural file',
+        pageUrl : 'the URL to the wiki page associated to the file',
+        mineType : 'mime type for the uploaded file'
+    }
+</source>
 EOT;
         $output->addWikiText( $wikitext );
     }
