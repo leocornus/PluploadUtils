@@ -3,7 +3,6 @@ PluploadUtils Release 0.1.0
 
 This is the first release for PluploadUtils_ extension.
 
-
 - Be able to save binary file in a Plupload_ request 
   to a MediaWiki File.
 - Be able to return file URL, page URL, and mime type in JSON 
