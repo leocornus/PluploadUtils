@@ -40,6 +40,8 @@ Check more details by visit the spcial page itself::
 Change Logs
 ===========
 
+- `PluploadUtils Release 0.1.1 <docs/002-Release-0.1.1.rst>`_
+  [under development].
 - `PluploadUtils Release 0.1.0 <docs/001-Release-0.1.0.rst>`_.
 
 Roadmaps
