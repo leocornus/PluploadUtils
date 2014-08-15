@@ -14,5 +14,9 @@ Briefly, we will have the following steps:
 #. load the **myskin.less** in file **screen.less**.
 #. load the resources for **myskin** in one of the extension file.
 
+`How to become a MediaWiki hacker`_ offers details info about
+how to start MediaWiki_ development.
+
 .. _MediaWiki: http://www.mediawiki.org
 .. _Vector Skin: http://www.mediawiki.org/wiki/Skin:Vector
+.. _How to become a MediaWiki hacker: http://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker
