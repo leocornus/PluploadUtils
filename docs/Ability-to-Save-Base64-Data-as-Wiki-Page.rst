@@ -18,6 +18,8 @@ Code Memo
 Here is how MediaWiki import Base64_ encoding data
 (from file **includes/Import.php**)::
 
+  $this->dumpTemp( base64_decode( $contents ) );
+
   /**
    * @param $contents
    * @return string
@@ -28,3 +30,10 @@ Here is how MediaWiki import Base64_ encoding data
           return $filename;
   }
 
+Then we need use the method **upload** in the **LocalFile** class::
+
+  $file = wfLocalFile('desired file name');
+  $file->upload($fileFullPath, $comment, $pageText,
+                $publishFlags = 0, $props = false, 
+                $timestamp = false,
+                $user = null);
