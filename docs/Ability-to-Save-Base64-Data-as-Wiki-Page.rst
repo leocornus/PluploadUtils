@@ -6,6 +6,12 @@ Design
 - client send Base64_ data to server
 -
 
+Test Cases
+----------
+
+We will use d3js_ to draw some images and use canvas_ to generate
+the Base64_ data.
+
 Code Memo
 ---------
 
