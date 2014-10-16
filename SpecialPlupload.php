@@ -13,9 +13,7 @@ class SpecialPlupload extends SpecialPage {
      */
     function execute( $par ) {
 
-
-        $request = $this->getRequest();
-        $action = $request->getText('action');
+        $action = $this->getRequest()->getText('action');
         if($action != 'plupload') {
             // this is not a PLupload request, print out
             // help info and return.
@@ -27,6 +25,15 @@ class SpecialPlupload extends SpecialPage {
         global $wgOut;
         $wgOut->disable();
 
+        $result = $this->handlePlupload();
+
+        echo(json_encode($result));
+        die();
+    }
+
+    function handlePlupload() {
+
+        $request = $this->getRequest();
         // get ready wiki text.
         $pageText = $this->getPageText($request);
         $comment = $this->getPageComment($request);
@@ -38,8 +45,11 @@ class SpecialPlupload extends SpecialPage {
         $mUpload = UploadBase::createFromRequest($request);
 
         // user verification! using the UploadBase 
+        $userId = $this->getUser()->getId();
         $permit = $mUpload->verifyTitlePermissions($this->getUser());
-        if($permit) {
+        // anonymous user as 0 as id, we try to block anonymous user
+        // to upload.
+        if($userId > 0 && $permit) {
             // user is allow to upload...
 
             $mLocalFile = $mUpload->getLocalFile();
@@ -66,8 +76,7 @@ class SpecialPlupload extends SpecialPage {
             );
         }
 
-        echo(json_encode($result));
-        die();
+        return $result;
     }
 
     /**
