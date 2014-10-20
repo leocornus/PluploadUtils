@@ -29,6 +29,13 @@ class SpecialPlupload extends SpecialPage {
         if($userId <= 0) {
             // this is anonymous user, check the settings for 
             // anonymous user.
+            $result = array(
+              "jsonrpc" => "2.0",
+              "success" => false,
+              "Error" => "You can not upload file to MediaWiki"
+            );
+            echo(json_encode($result));
+            die();
         }
 
         // get ready wiki text.
@@ -154,7 +161,7 @@ class SpecialPlupload extends SpecialPage {
      */
     private function dumpTemp( $contents ) {
 
-        $filename = tempnam( wfTempDir(), 'importupload' );
+        $filename = tempnam( wfTempDir(), 'specialupload' );
         file_put_contents( $filename, $contents );
         return $filename;
     }
