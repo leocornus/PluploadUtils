@@ -161,7 +161,7 @@ class SpecialPlupload extends SpecialPage {
      */
     private function dumpTemp( $contents ) {
 
-        $filename = tempnam( wfTempDir(), 'specialupload' );
+        $filename = tempnam( wfTempDir(), 'specialplupload' );
         file_put_contents( $filename, $contents );
         return $filename;
     }

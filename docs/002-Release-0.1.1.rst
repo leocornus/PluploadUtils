@@ -3,13 +3,14 @@ New Features
 ------------
 
 - Be able to upload files from different domain.
-- Support Base64 data format upload
+- Support Base64_ data format upload
 
 Design Story
 ------------
 
+- `Ability to save Base64 format data as Wiki page
+  <Ability-to-Save-Base64-Data-as-Wiki-Page.rst>`_
 - Need introduce a new options to list all allowed domains.
-- Ability to save Base64_ format data as Wiki page
 
 Questions
 ---------
