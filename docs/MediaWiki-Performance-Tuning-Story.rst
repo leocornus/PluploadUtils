@@ -14,7 +14,8 @@ here are some banchmarking tools can help evaluate the effects of
 performance tuning.
 
 - PageSpeed_ from Google
-- ab_ from Appache
+- ab_ from Apache
+- siege_ an HTTP load testing and benchmarking utility.
 
 Varnish
 -------
@@ -53,3 +54,4 @@ Setup a benchmark as a service of WordPress...
 .. _Varnish: https://www.varnish-cache.org/
 .. _Memcached: http://memcached.org/
 .. _Manual Memcached: https://www.mediawiki.org/wiki/Memcached
+.. _siege: http://www.joedog.org/siege-home/
