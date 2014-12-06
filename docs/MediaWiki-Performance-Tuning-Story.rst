@@ -33,6 +33,13 @@ caching data and objects in memory.
 Memcached_ has been supported in MediaWiki since v1.1.
 It will help all kinds of users: logged in and none-logged in.
 
+APC or OPcache
+--------------
+
+PHP bytecode caching solutions.
+
+OPcache is include in PHP 5.5.0 and later. It recommended by MediaWiki.
+
 InnoDB tuning
 --------------
 
@@ -41,6 +48,28 @@ Here are some questions:
 - How to using InnoDB for MediaWiki?
 - How to config InnoDB?
 - What's the best settings for **innodb_buffer_pool**?
+
+The value of **innodb_buffer_pool_size** seems a very import setting.
+The value of **table_cache** is another one we can tweak.
+
+MariaDB
+-------
+
+**mysqltuner** is a very useful tool to check the health status of
+your MySQL database server.
+
+- MediaWiki Maintenance file **compressOld.php** will remove
+  unnessary tables from database.
+
+Questions
+---------
+
+What does pending mean in Chrome inspector
+------------------------------------------
+
+Pending in Chrome inspector tells that the file has yet to 
+be downloaded from the network, and Chrome is making a request
+and trying to download it.
 
 TODO
 ----
