@@ -36,6 +36,32 @@ caching data and objects in memory.
 Memcached_ has been supported in MediaWiki since v1.1.
 It will help all kinds of users: logged in and none-logged in.
 
+Resources
+---------
+
+`Ilmari Karonen's Performance Tuning`_ page has some interesting
+tricks about tune up MediaWiki performance.
+Set the **maxage** for resources load by the MediaWiki resource
+loader.
+The variable **$wgREsourceLoaderMaxage** will allow you to tweak
+the lifetime of those resources.
+Here is an example::
+
+  // increase the maxage for un versioned resources.
+  $wgResourceLoaderMaxage = array(
+    'versioned' => array(
+      'server' => 30 * 24 * 60 * 60,
+      'client' => 30 * 24 * 60 * 60, // 30 days
+    ),
+    'unversioned' => array(
+      'server' => 30 * 24 * 60 * 60,
+      'client' => 30 * 24 * 60 * 60, // 30 days
+    )
+  );
+
+The better way will be provide the proper version number for all
+resources used by your skin.
+
 APC or OPcache
 --------------
 
@@ -54,6 +80,8 @@ Here are some questions:
 
 The value of **innodb_buffer_pool_size** seems a very import setting.
 The value of **table_cache** is another one we can tweak.
+
+`MariaDB Tuning Story <https://github.com/leocornus/leocornus.buildout.cfgrepo/blob/master/sample/db/mariadb-tuning-story.rst>`_ has more details list of options for InnoDB.
 
 MariaDB
 -------
@@ -80,6 +108,7 @@ Setup a benchmark tool might be our first step!
 Setup a benchmark as a service of WordPress...
 
 .. _MediaWiki Manual Performance tuning: http://www.mediawiki.org/wiki/Manual:Performance_tuning
+.. _Ilmari Karonen's Performance Tuning: http://www.mediawiki.org/wiki/User:Ilmari_Karonen/Performance_tuning
 .. _MediaWiki Manual Cache: http://www.mediawiki.org/wiki/Manual:Cache
 .. _PageSpeed: https://developers.google.com/speed/pagespeed/
 .. _ab: https://httpd.apache.org/docs/2.2/programs/ab.html
