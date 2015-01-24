@@ -2,6 +2,7 @@ Here are some TODO:
 
 - Multipel files upload
 - list each files's upload status and result.
+- ability to set categories for the uploaded files/images.
 
 - Logging message!
 - Unit testing cases.
