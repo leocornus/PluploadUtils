@@ -9,7 +9,7 @@ Dependences
 -----------
 
 - TemplateData extension
-- TemplateData Editor GUI?
+- TemplateDataEditor_ GUI?
 - `TemplateData Generator`_
 
 Questions
@@ -39,3 +39,4 @@ here is a quick JSON to define on parameter ticket_id::
 
 .. _TemplateData: https://www.mediawiki.org/wiki/Extension:TemplateData
 .. _TemplateData Generator: http://tools.wikimedia.pl/~mlazowik/templatedata/
+.. _TemplateDataEditor: http://en.wikipedia.org/wiki/User:NicoV/TemplateDataEditor 
