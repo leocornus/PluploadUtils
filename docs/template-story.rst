@@ -19,4 +19,6 @@ Here is a template to use the **<source>** tag from
   page is using VisualEditor
   </noinclude>
 
+The **enclose="div"** attribute will wrap those long code lines.
+
 .. _SyntaxHighlight GeSHi Extension: https://www.mediawiki.org/wiki/Extension:SyntaxHighlight_GeSHi
