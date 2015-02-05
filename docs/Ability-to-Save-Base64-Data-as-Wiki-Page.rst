@@ -4,8 +4,10 @@ Ability to Save Base64 Data as Wiki Page
 Design
 ------
 
+- client need get ready the Base64_ data. JavaScript function
+  **btoa()** will creeate a Base64_ string from binary data.
 - client send Base64_ data to server
--
+- PHP function **base64_decode** to decode Base64_ data
 
 Test Cases
 ----------
@@ -42,5 +44,12 @@ Then we need use the method **upload** in the **LocalFile** class::
                 $timestamp = false,
                 $user = null);
 
+JavaScript code examples::
+
+  var text = "Some plain text here";
+  // base64 encoding...
+  var base64text = btoa(text);
+
 .. _Base64: http://en.wikipedia.org/wiki/Base64
 .. _canvas: http://www.w3schools.com/tags/ref_canvas.asp
+.. _JavaScript Base64 encoding and decoding: https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
