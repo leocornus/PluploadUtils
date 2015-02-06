@@ -1,6 +1,11 @@
 `Release 0.1.1 <002-Release-0.1.1.rst>`_ > 
 Ability to Save Base64 Data as Wiki Page
 
+- `Design`_
+- `Test Cases`_
+- `Save Text File to Wiki`_
+- `Code Memo`_
+
 Design
 ------
 
@@ -17,6 +22,52 @@ the Base64_ data.
 Then jQuery_ post will send Base64_ data to server side.
 The wiki special page will perform as the AJAX call back function,
 which will save the Base64_ data as wiki file page.
+
+Save Text File to Wiki
+----------------------
+
+Save a text file to wiki is vary easy by using the SpecialPlupload
+page. Here is example::
+
+  <input type="button" id="saveText" value="save text"/>
+  
+  <script type="text/javascript">
+  jQuery(document).ready(function($) { 
+    $("#saveText").on("click", function() {
+
+      // get ready the text data. we are using JSON format as 
+      // example. 
+      var data = "{'name':'first name', 'age':'12'}";
+      // base64 encoding function.
+      var base64Data = btoa(data);
+      var serial = Math.floor(Math.random() * 100000 + 1);
+      // Here is URL to special page.
+      var handler_url = '/wiki/Special:SpecialPlupload';
+      var data = {
+        'action' : 'base64',
+        'desc' : "testing upload text from [[Category:Base64]]",
+        'comment' : "from code, plupload",
+        'wpDestFile' : 'json'  + serial + '.json',
+        'base64Data' : base64Data
+      };
+      $.post(handler_url, data, function(response) {
+  
+          //console.log(response);
+          var si = response.indexOf("{");
+          var ei = response.lastIndexOf("}");
+          var res = JSON.parse(response.substring(si, ei + 1));
+          //console.log(res);
+          if(res.success) {
+              // redirect to the file wiki page
+              // res.fileUrl has the URL to the file.
+              window.location.href = res.pageUrl;
+              //alert(res.pageUrl);
+          } else {
+              alert('You need Log in to save image on Wiki!');
+          }
+      });
+    });
+  });
 
 Code Memo
 ---------
