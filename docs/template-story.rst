@@ -21,4 +21,22 @@ Here is a template to use the **<source>** tag from
 
 The **enclose="div"** attribute will wrap those long code lines.
 
+Using table in wiki template
+----------------------------
+
+The effecient way to use table in a wiki template is using wiki
+markups.
+Here is an example to set a table floating right and with width 30%::
+
+  {| class="wikitable" style="float: {{{float|right}}}; width: 30%"
+  |- style="background: blue"
+  ! {{{caption|Most Recent Changes}}}
+  |- style="background: red"
+  | {{#tag:DynamicPageList|
+  category = {{{category|My Category}}}
+  count = {{{count|8}}}
+  ordermethod = lastedit}}
+  |}<noinclude>
+
+
 .. _SyntaxHighlight GeSHi Extension: https://www.mediawiki.org/wiki/Extension:SyntaxHighlight_GeSHi
