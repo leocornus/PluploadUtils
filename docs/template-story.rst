@@ -38,5 +38,13 @@ Here is an example to set a table floating right and with width 30%::
   ordermethod = lastedit}}
   |}<noinclude>
 
+Using Template to Navigate / Organize Your Wiki Pages
+-----------------------------------------------------
+
+Some ideas:
+
+- template could be considered as a widget
+- could be navigated between pages
+- indexing navigation bar.
 
 .. _SyntaxHighlight GeSHi Extension: https://www.mediawiki.org/wiki/Extension:SyntaxHighlight_GeSHi
